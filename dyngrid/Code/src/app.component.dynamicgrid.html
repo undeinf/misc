@@ -1,0 +1,35 @@
+﻿<div class="ibox-content">
+    <div class="ibox-table">
+        <div class="table-responsive">
+            <table class="responsive-table table-striped table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th *ngFor="let header of columns;let ind=index" [ngStyle]="{'width': header.width}">
+                            <span>
+                                {{header.caption}}
+                            </span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let s of _source; let i=index">
+                        <td *ngFor="let cols of columns; let ind1=index" [ngSwitch]="cols.dataType" [ngStyle]="{'width': cols.width}">
+                            <span *ngSwitchCase="0">
+                                {{s[cols.dataField]}}
+                            </span>                           
+                            <span *ngSwitchCase="1">
+                                {{s[cols.dataField]}}
+                            </span>
+                            <span *ngSwitchCase="2">
+                                {{s[cols.dataField] | date:"fullDate"}}
+                            </span>
+                            <span *ngSwitchCase="3">
+                                {{s[cols.dataField]}}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

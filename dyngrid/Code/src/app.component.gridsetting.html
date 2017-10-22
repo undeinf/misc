@@ -1,0 +1,43 @@
+﻿<div>
+    <fieldset>
+        <legend>
+            Employee Information
+        </legend>
+        <table style="width:100%;">
+            <tr>
+                <th>Employee Name</th>
+                <td><input type="text" maxlength="100" [(ngModel)]="_modelData.employeeName" /></td>
+            </tr>
+            <tr>
+                <th>Department</th>
+                <td><input type="text" maxlength="100"  [(ngModel)]="_modelData.department"/></td>
+            </tr>
+            <tr>
+                <th>Designation</th>
+                <td><input type="text" maxlength="100" [(ngModel)]="_modelData.designation" /></td>
+            </tr>
+            <tr>
+                <th>Date of Join</th>
+                <td><input type="date"  [(ngModel)]="_modelData.doj"/></td>
+            </tr>
+            <tr>
+                <th>Salary</th>
+                <td><input type="number"  [(ngModel)]="_modelData.salary"/></td>
+            </tr>
+            <tr>
+                <td style="text-align:right;"></td>
+                <td>
+                    <input type="button" value="Add" (click)="addData();" />
+                    &nbsp;&nbsp;
+                    <input type="button" value="Clear" (click)="clearData()" />
+                    &nbsp;&nbsp;
+                    <input type="button" value="Reset Grid" (click)="resetGrid()" />
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+</div>
+<div>
+    <h2>Employee Details</h2>
+    <dynamic-grid [columns]="_columnDetails" #grid></dynamic-grid>
+</div>
